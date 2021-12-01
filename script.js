@@ -1,5 +1,18 @@
+// button event listeners
+const buttons = document.querySelectorAll('#move-container')
+
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        console.log(e.target.textContent);
+        playRound(e.target.textContent);
+    });
+});
+
+
+
 // Global variables to track wins and hold the possible moves in the game
 const moves = ['rock', 'paper', 'scissors']
+let roundCounter = 0;
 let playerWinCounter = 0;
 let computerWinCounter = 0;
 
@@ -10,9 +23,9 @@ const computerPlay = () => {
 }
 
 // Function to prompt the user for input.
-const playerPlay = () => {
-    let move = prompt("Choose rock, paper, or scissors:  ");
+const playerPlay = (move) => {
     move.toLowerCase();
+    console.log(move);
     return move;
 }
 
@@ -51,21 +64,24 @@ Function to run each round of the game. Generates the moves for player and compu
 based on function calls and runs those variable through the gameLogic function. 
 Prints results of gameLogic() to console.
 */
-const playRound = () => {
+const playRound = (player) => {
+    roundCounter++;
     let computerSelection = computerPlay();
-    let playerSelection = playerPlay();
+    let playerSelection = player.toLowerCase();
 
     console.log(`The computer has chosen: ${computerSelection}`);
     console.log(`You have chosen: ${playerSelection}`);
 
     console.log(gameLogic(playerSelection, computerSelection));
+    if (roundCounter >= 5)
+        game();
 }
 
 // 'main' function. Runs the game. Prompts user for number of rounds and prints final results to console.
 const game = () => {
-    rounds = prompt("How many rounds do you want to play?")
-    for (let i = 0; i < rounds; i++)
-        playRound();
+    //rounds = prompt("How many rounds do you want to play?")
+    //for (let i = 0; i < rounds; i++)
+        //playRound();
 
     console.log(`You have won ${playerWinCounter} rounds and the computer has won ${computerWinCounter} rounds.`)
     if (playerWinCounter > computerWinCounter) {
