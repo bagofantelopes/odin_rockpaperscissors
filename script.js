@@ -1,4 +1,4 @@
-// button event listeners
+// player move button event listeners
 const buttons = document.querySelectorAll('#move-container')
 
 buttons.forEach((button) => {
@@ -8,25 +8,18 @@ buttons.forEach((button) => {
     });
 });
 
-
-
 // Global variables to track wins and hold the possible moves in the game
 const moves = ['rock', 'paper', 'scissors']
 let roundCounter = 0;
-let playerWinCounter = 0;
-let computerWinCounter = 0;
+let playerWinCounter = document.getElementById('player-score');
+let computerWinCounter = document.getElementById('computer-score');
+
+
 
 // Function to decide the computer's move with a simple random number generator
 const computerPlay = () => {
     let num = Math.floor(Math.random() * (moves.length - 0) + 0);
     return moves[num];
-}
-
-// Function to prompt the user for input.
-const playerPlay = (move) => {
-    move.toLowerCase();
-    console.log(move);
-    return move;
 }
 
 /* 
@@ -38,22 +31,22 @@ const gameLogic = (player, computer) => {
     if (player == computer) {
         return "This round is a tie.";
     } else if (player == 'rock' && computer == 'paper') {
-        computerWinCounter += 1;
+        computerWinCounter.textContent += '|';
         return "The computer wins this round.";
     } else if (player == 'rock' && computer == 'scissors') {
-        playerWinCounter += 1;
+        playerWinCounter.textContent += '|';
         return "You win this round.";
     } else if (player == 'paper' && computer == 'rock') {
-        playerWinCounter += 1;
+        playerWinCounter.textContent += '|';
         return "You win this round.";
     } else if (player == 'paper' && computer == 'scissors') {
-        computerWinCounter += 1;
+        computerWinCounter.textContent += '|';
         return "The computer wins this round.";
     } else if (player == 'scissors' && computer == 'paper') {
-        playerWinCounter += 1;
+        playerWinCounter.textContent += '|';
         return "You win this round.";
     } else if (player == 'scissors' && computer == 'rock') {
-        computerWinCounter += 1;
+        computerWinCounter.textContent += '|';
         return "The computer wins this round.";
     }
 
@@ -69,29 +62,28 @@ const playRound = (player) => {
     let computerSelection = computerPlay();
     let playerSelection = player.toLowerCase();
 
-    console.log(`The computer has chosen: ${computerSelection}`);
-    console.log(`You have chosen: ${playerSelection}`);
+    computerMove = document.getElementById('computer-move');
+    playerMove = document.getElementById('your-move');
+    computerMove.textContent = `The computer has chosen: ${computerSelection}`
+    playerMove.textContent = `You have chosen: ${playerSelection}`
 
     console.log(gameLogic(playerSelection, computerSelection));
-    if (roundCounter >= 5)
-        game();
-}
-
-// 'main' function. Runs the game. Prompts user for number of rounds and prints final results to console.
-const game = () => {
-    //rounds = prompt("How many rounds do you want to play?")
-    //for (let i = 0; i < rounds; i++)
-        //playRound();
-
-    console.log(`You have won ${playerWinCounter} rounds and the computer has won ${computerWinCounter} rounds.`)
-    if (playerWinCounter > computerWinCounter) {
-        console.log("You have won the game!")
-    } else if (computerWinCounter > playerWinCounter) {
-        console.log("The computer has won the game!")
-    } else {
-        console.log("Looks like a tie this time!")
+    if (roundCounter >= 5) {
+        console.log(`You have won ${playerWinCounter.textContent.length} rounds and the computer has won ${computerWinCounter} rounds.`)
+        if (playerWinCounter > computerWinCounter) {
+            console.log("You have won the game!")
+        } else if (computerWinCounter > playerWinCounter) {
+            console.log("The computer has won the game!")
+        } else {
+            console.log("Looks like a tie this time!")
+        }
     }
 }
 
-// run ze game!
-game();
+const computerScores = () => {
+
+}
+
+const playerScores = () => {
+
+}
