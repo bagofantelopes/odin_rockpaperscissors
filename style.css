@@ -11,13 +11,28 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 15%;
-    padding: 18px;
+    padding: 5%;
+    margin: 10px 20%;
 }
 
-button {
+#your-move,
+#computer-move, 
+#current-round {
+    border: 5px groove black;
+    transform: scale(1.2);
+    background-color: white;
+    padding: 10px;
+}
+
+#current-round {
+    display: none;
+}
+
+.move {
     transform: scale(2.25);
+    background-color: white;
+    border: 5px groove black;
 }
-
 
 div, .container {
     display: flex;
@@ -31,4 +46,15 @@ div, .container {
 .score {
     border: 2.5px solid black;
     padding: 5px;
+}
+
+.title {
+    animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+    to {
+        text-shadow: 10px 10px 20px blue;
+        color:antiquewhite
+    }
 }
