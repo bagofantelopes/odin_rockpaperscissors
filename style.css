@@ -1,60 +1,102 @@
 html {
-    background-color: grey;
+    background-color: black;
 }
 
 h1 {
     display: flex;
     justify-content: center;
-}
-
-#move-container {
-    display: flex;
-    justify-content: center;
-    gap: 15%;
-    padding: 5%;
-    margin: 10px 20%;
-}
-
-#your-move,
-#computer-move, 
-#current-round {
-    border: 5px groove black;
-    transform: scale(1.2);
-    background-color: white;
-    padding: 10px;
-}
-
-#current-round {
-    display: none;
-}
-
-.move {
-    transform: scale(2.25);
-    background-color: white;
-    border: 5px groove black;
-}
-
-div, .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin: 10px 10px;
     text-align: center;
 }
 
+input {
+    width: 50px;
+}
+
+.game-container {
+    border: 10px groove white;
+    margin: 10px 10%;
+    background-color: lightslategray;
+}
+
+.move {
+    transform: scale(2);
+    background-color: white;
+    border: 5px groove black;
+}
+
+button::active {
+    background-color: black;
+    transform: scale(3);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin: 10px 10px;
+    text-align: center;
+    
+}
+.play {
+    background-color: lightslategray;
+}
+
 .score {
-    border: 2.5px solid black;
     padding: 5px;
+    width: 252px;
+    background-color: lightslategray;
 }
 
 .title {
+    border: 5px groove black;
+    margin: 25px 20%;
     animation: glow 2.5s infinite alternate;
 }
 
 @keyframes glow {
     to {
-        text-shadow: 10px 10px 20px blue;
-        color:antiquewhite
+        text-shadow: 0 0 20px whitesmoke;
+        color:white;
+        background-color: black;
     }
+}
+
+
+#move-container {
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+    margin: 10% 5%;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+#rock,
+#paper,
+#scissors,
+img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+#your-move,
+#computer-move, 
+#current-round {
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+#current-round {
+    display: none;
+    border: none;
+}
+
+#final-score {
+    font-size: 3rem;
 }

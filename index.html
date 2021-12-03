@@ -9,48 +9,66 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1 class="title"> ROCK PAPER SCISSORS </h1>
+    <div class="game-container">
+        <h1 class="title"> ROCK PAPER SCISSORS </h1>
 
-    <div class="container">
-        <form>
-            <label for="max-rounds-selector">How many rounds will you play?</label>
-            <input id="max-rounds-selector" type="number">
-            <input id="start-button" type="submit" value="Let's play!">
-        </form>
-    </div>
-
-    <div id="move-container">
-        <button id="rock" class="move">Rock</button>
-        <button id="paper" class="move">Paper</button>
-        <button id="scissors" class="move">Scissors</button>
-    </div>
-
-    <div id="game-display" class="container">
-        <div id="your-move">Your Play: </div>
-        <div id="computer-move">Computer's Play: </div>
-    </div>
-
-    <div class="container">
-        <div id="current-round"></div>
-    </div>
-
-    <div id="score-display" class="container">
-        <div class="score">
-            <h2>Your Score:</h2>
-            <input id="player-score" type="number" value="0">
+        <div class="container">
+            <form>
+                <label for="max-rounds-selector">Set your score ceiling: </label>
+                <input id="max-rounds-selector" type="number" value="5">
+                <button id="start-button" type="button">Set New Score</button>
+            </form>
         </div>
-        <div class="score">
-            <h2>Computer Score:</h2>
-            <input id="computer-score" type="number" value="0">
+
+        <div class="container">
+            <div id="move-container">
+                <button id="rock" class="move"><img src="./images/rock.png"></button>
+                <!--- img src https://archives.bulbagarden.net/media/upload/thumb/9/98/074Geodude.png/250px-074Geodude.png-->
+            </div>
+            <div id="move-container">
+                <button id="paper" class="move"><img src="./images/tp.png"></button>
+                <!--- img src https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLZd9XUZYRQp05iHToNLs3ba-ktq27gLjC8A&usqp=CAU-->
+            </div>
+            <div id="move-container">
+                <button id="scissors" class="move"><img src="./images/scissors.png"></button>
+                <!--- img src https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQrf9bXOvdGVWPk8tilMzzqtd4eFgGfAQ3A&usqp=CAU-->
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div id="final-score"></div>
-    </div>
+        <div class="container">
+            <div id="playing-for-rounds"></div>
+        </div>
 
-    <div class="container">
-        <button id="reset-button">Play Again?</button>
+        <div id="game-display" class="container">
+            <div class="play">
+                <div id="your-move"></div>
+            </div>
+            <div class="play">
+                <div id="current-round"></div>
+            </div>
+            <div class="play">
+                <div id="computer-move"></div>
+            </div>
+        </div>
+        
+        <div id="score-display" class="container">
+            <div class="score">
+                <h2>Your Score:</h2>
+                <input id="player-score" type="number" value="0">
+            </div>
+            <div class="score">
+                <h2>Computer Score:</h2>
+                <input id="computer-score" type="number" value="0">
+            </div>
+        </div>
+
+        <div class="container results">
+            <div id="final-score"></div>
+        </div>
+
+        <div class="container">
+            <button id="reset-button">RESET</button>
+        </div>
     </div>
 </body>
 </html>
